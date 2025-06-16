@@ -1,0 +1,12 @@
+<ul>
+    {% for item in menu_items %}
+        <li class="{% if item.pk == active_item_id %}menu-item-active{% endif %}">
+            <a href="{{ item.resolved_url }}">{{ item.name }}</a>
+            {% if item.child_items and item.pk in expanded_item_ids %}
+                {% with menu_items=item.child_items template_name="menu/draw_menu.html" %}
+                    {% include template_name %}
+                {% endwith %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
