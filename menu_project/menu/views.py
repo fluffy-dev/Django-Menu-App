@@ -15,6 +15,8 @@ def services_view(request):
     """Renders the main services page."""
     return render(request, 'menu/page.html', {'title': 'Наши услуги'})
 
+def terms_of_service_page_view(request):
+    return render(request, 'menu/page.html', {'title': 'Условия пользования'})
 
 def service_detail_view(request, service_slug: str):
     """

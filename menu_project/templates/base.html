@@ -4,25 +4,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-t-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django Menu App{% endblock %}</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; }
-        .container { max-width: 960px; margin: 20px auto; padding: 0 20px; }
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 960px; margin: 20px auto; padding: 0 20px; flex-grow: 1; }
         nav { background-color: #f4f4f4; padding: 1rem; border-bottom: 1px solid #ddd; }
         nav ul { list-style: none; padding-left: 15px; }
         nav ul li { margin-bottom: 5px; }
         .menu-item-active > a { color: #d93025; font-weight: bold; }
+        footer { background-color: #333; color: #fff; padding: 1rem; margin-top: auto; }
+        footer ul { list-style: none; padding-left: 15px; }
+        footer a { color: #fff; }
     </style>
 </head>
 <body>
     <nav>
+        <h3>Основное меню:</h3>
         {% draw_menu 'main_menu' %}
     </nav>
+
     <main class="container">
         <h1>{% block header %}{% endblock %}</h1>
         {% block content %}{% endblock %}
     </main>
+
+<!--    <footer>-->
+<!--        <h3>Меню в подвале:</h3>-->
+<!--        {% draw_menu 'footer_menu' %}-->
+<!--    </footer>-->
+<!-- THAT WAS FOR TEST -->
 </body>
 </html>
